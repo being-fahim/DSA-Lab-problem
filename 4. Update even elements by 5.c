@@ -1,26 +1,31 @@
 #include <stdio.h>
 
 int main(){
-    int n;
+    int n, c = 0;
     printf("Enter the size of array: ");
     scanf("%d", &n);
-    int a[n];
+    int a[n], b[n];
 
+    printf("\nInsert elements: ");
     for(int i = 0; i < n; i++){
         scanf("%d", &a[i]);
     }
-    printf("\nYour inserted elements are\n");
+
+    printf("\nYour inserted elements are: ");
     for(int i = 0; i < n; i++){
         printf("%d ", a[i]);
     }
-    printf("\n\nAll elements replaced by 5\n");
-
     for(int i = 0; i < n; i++){
-        a[i] = 5;
+        if(a[i] % 2 == 0)
+            b[c] = 5;
+        else
+            b[c] = a[i];
+        c++;
     }
 
+    printf("\nEven elements replaced by 5: ");
     for(int i = 0; i < n; i++){
-        printf("%d ", a[i]);
+        printf("%d ", b[i]);
     }
 }
 
