@@ -15,7 +15,6 @@ void sort(int Y[], int y) {
         }
     }
 
-    printf("Sorted Array: ");
     for(i = 0; i < y; i++)
         printf("%d ", Y[i]);
 
@@ -76,6 +75,7 @@ int main() {
         printf("%d ", abc[i]);
 
     printf("\n\n");
+    printf("Final Sorted Array: ");
     sort(abc, x);
 
 }
