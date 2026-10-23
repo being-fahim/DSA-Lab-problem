@@ -1,7 +1,26 @@
 #include <stdio.h>
 
 int i;
-void sort(int abc[], int x);
+
+void sort(int abc[], int x) {
+    int temp;
+
+    for(i = 0; i < x - 1; i++) {
+        for(int j = 0; j < x - 1 - i; j++) {
+            if(abc[j] > abc[j + 1]) {
+                temp = abc[j];
+                abc[j] = abc[j + 1];
+                abc[j + 1] = temp;
+            }
+        }
+    }
+
+    printf("Sorted Array: ");
+    for(i = 0; i < x; i++)
+        printf("%d ", abc[i]);
+
+    printf("\n");
+}
 
 int main() {
     int n, m, o, j = 0, k = 0, x;
@@ -34,17 +53,14 @@ int main() {
         scanf("%d", &c[i]);
 
     printf("\n--------------------------------\n");
-    printf("Array A: ");
-    for(i = 0; i < n; i++)
-        printf("%d ", a[i]);
+    printf("Sorted Array A: ");
+    sort(a,n);
 
-    printf("\nArray B: ");
-    for(i = 0; i < m; i++)
-        printf("%d ", b[i]);
+    printf("\nSorted Array B: ");
+    sort(b,m);
 
-    printf("\nArray C: ");
-    for(i = 0; i < o; i++)
-        printf("%d ", c[i]);
+    printf("\nSorted Array C: ");
+    sort(c,o);
 
     for(i = 0; i < n; i++)
         abc[i] = a[i];
@@ -62,25 +78,5 @@ int main() {
     printf("\n\n");
     sort(abc, x);
 
-}
-
-void sort(int abc[], int x) {
-    int temp;
-
-    for(i = 0; i < x - 1; i++) {
-        for(int j = 0; j < x - 1 - i; j++) {
-            if(abc[j] > abc[j + 1]) {
-                temp = abc[j];
-                abc[j] = abc[j + 1];
-                abc[j + 1] = temp;
-            }
-        }
-    }
-
-    printf("Sorted Array: ");
-    for(i = 0; i < x; i++)
-        printf("%d ", abc[i]);
-
-    printf("\n");
 }
 
