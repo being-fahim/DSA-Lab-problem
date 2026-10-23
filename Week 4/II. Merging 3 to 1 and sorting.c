@@ -2,22 +2,22 @@
 
 int i;
 
-void sort(int abc[], int x) {
+void sort(int Y[], int y) {
     int temp;
 
-    for(i = 0; i < x - 1; i++) {
-        for(int j = 0; j < x - 1 - i; j++) {
-            if(abc[j] > abc[j + 1]) {
-                temp = abc[j];
-                abc[j] = abc[j + 1];
-                abc[j + 1] = temp;
+    for(i = 0; i < y - 1; i++) {
+        for(int j = 0; j < y - 1 - i; j++) {
+            if(Y[j] > Y[j + 1]) {
+                temp = Y[j];
+                Y[j] = Y[j + 1];
+                Y[j + 1] = temp;
             }
         }
     }
 
     printf("Sorted Array: ");
-    for(i = 0; i < x; i++)
-        printf("%d ", abc[i]);
+    for(i = 0; i < y; i++)
+        printf("%d ", Y[i]);
 
     printf("\n");
 }
