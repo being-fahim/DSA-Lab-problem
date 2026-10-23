@@ -1,17 +1,15 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
 
-int top = -1;
+int top = -1; 
 
-void push(int stack[], int maxsize, int *top);
-void pop(int stack[], int maxsize, int *top);
-void display(int stack[], int *top);
+void push(int stack[], int maxsize);
+void pop(int stack[], int maxsize);
+void display(int stack[]);
 
 int main() {
     int n, choice;
-
     printf("Enter the size of stack: ");
     scanf("%d", &n);
 
@@ -20,86 +18,48 @@ int main() {
 
     do {
         system("cls");
-
-        printf("\n------------------------");
-        printf("\n-------Stack Menu-------");
-        printf("\n------------------------\n");
-
-        printf("\n1. Push");
-        printf("\n2. Pop");
-        printf("\n3. Display");
-        printf("\n4. Exit");
-
-        printf("\n\nEnter an option: ");
+        printf("\n1. Push\n2. Pop\n3. Display\n4. Exit\nEnter option: ");
         scanf("%d", &choice);
 
         switch (choice) {
-            case 1:
-                push(stack, maxsize, &top);
-                break;
-
-            case 2:
-                pop(stack, maxsize, &top);
-                break;
-
-            case 3:
-                display(stack, &top);
-                break;
-
-            case 4:
-                printf("\nProgram terminating....");
-                break;
-
-            default:
-                printf("\nInvalid option!");
-                break;
+            case 1: push(stack, maxsize); break;
+            case 2: pop(stack, maxsize); break;
+            case 3: display(stack); break;
+            case 4: printf("\nTerminating..."); break;
+            default: printf("\nInvalid!"); break;
         }
-
         getche();
-
     } while (choice != 4);
 
     return 0;
 }
 
-void push(int stack[], int maxsize, int *top) {
+void push(int stack[], int maxsize) {
     int value;
-
-    if (*top == maxsize) {
-        printf("\nStack is overflow!");
-    }
-    else {
-        printf("\nEnter an element: ");
+    if (top == maxsize) {
+        printf("\nStack overflow!");
+    } else {
+        printf("\nEnter element: ");
         scanf("%d", &value);
-
-        stack[++(*top)] = value;
-
-        printf("\n%d is pushed", value);
+        stack[++top] = value;
+        printf("\n%d pushed", value);
     }
 }
 
-void pop(int stack[], int maxsize, int *top) {
-    int c;
-
-    if (*top == -1) {
-        printf("\nStack is underflow (Empty)");
-    }
-    else {
-        c = stack[*top];
-        (*top)--;
-
-        printf("\n%d is popped", c);
+void pop(int stack[], int maxsize) {
+    if (top == -1) {
+        printf("\nStack underflow!");
+    } else {
+        printf("\n%d popped", stack[top--]);
     }
 }
 
-void display(int stack[], int *top) {
-    if (*top == -1) {
-        printf("\nStack is underflow (Empty)");
-    }
-    else {
-        for (int i = *top; i >= 0; i--) {
+void display(int stack[]) {
+    if (top == -1) {
+        printf("\nStack empty");
+    } else {
+        for (int i = top; i >= 0; i--) {
             printf("\n%d", stack[i]);
         }
     }
 }
-
