@@ -1,28 +1,7 @@
 #include <stdio.h>
 
 int i;
-
-void dd(int c[], int x) {
-    int y = 0, z = -1;
-
-    for (i = 0; i < x; i++) {
-        for (int j = 0; j < i; j++) {
-            if (c[i] == c[j])
-                z++;
-        }
-
-        if (z == -1)
-            c[y++] = c[i];
-
-        z = -1;
-    }
-
-    printf("After deleting duplicate elements, Array: ");
-    for (i = 0; i < y; i++)
-        printf("%d ", c[i]);
-
-    printf("\n");
-}
+void dd(int c[], int x);
 
 int main() {
     int n, m, j = 0, x;
@@ -73,3 +52,26 @@ int main() {
 
     return 0;
 }
+
+void dd(int c[], int x) {
+    int y = 0, z = -1;
+
+    for (i = 0; i < x; i++) {
+        for (int j = 0; j < i; j++) {
+            if (c[i] == c[j])
+                z++;
+        }
+
+        if (z == -1)
+            c[y++] = c[i];
+
+        z = -1;
+    }
+
+    printf("After deleting duplicate elements, Array: ");
+    for (i = 0; i < y; i++)
+        printf("%d ", c[i]);
+
+    printf("\n");
+}
+
